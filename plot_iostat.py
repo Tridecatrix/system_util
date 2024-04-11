@@ -12,8 +12,6 @@
 #
 ###################################################
 
-import sys, getopt
-import operator
 import optparse
 import matplotlib
 matplotlib.use('Agg')
