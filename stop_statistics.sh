@@ -37,7 +37,7 @@ do
 done
 
 # Get the end time of the experiment
-TIME=$(date +"%T-%d-%m-%Y")
+TIME=$(date +"%F-time-%H-%M-%S")
 echo $TIME >> ${RESULT_DIR}/parsedate
 
 # Kill iostat mpstat

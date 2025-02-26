@@ -39,7 +39,7 @@ done
 mkdir -p ${RESULT_DIR}
 
 # Start time of the experiment
-TIME=$(date +"%T-%d-%m-%Y")
+TIME=$(date +"%F-time-%H-%M-%S")
 echo $TIME > ${RESULT_DIR}/parsedate
 
 # Get iostat, mpstat, and diskstats statistics
