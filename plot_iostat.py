@@ -250,7 +250,7 @@ plt.xlabel('Time (s)')
 plt.legend(loc='upper right')
 
 # Save figure
-plt.savefig('%s/wr_thrput.png' % options.outputPath, bbox_inches='tight', zorder=2)
+plt.savefig('%s/wr_thrput.png' % options.outputPath, bbox_inches='tight')
 
 #------------------------------------------------------------------------------
 # Read + Write Throughput Storage Device
@@ -274,7 +274,7 @@ plt.xlabel('Time (s)', fontsize=config.fontsize)
 plt.legend(loc='upper right')
 
 # Save figure
-plt.savefig('%s/thrput.png' % options.outputPath, bbox_inches='tight', zorder=2)
+plt.savefig('%s/thrput.png' % options.outputPath, bbox_inches='tight')
 
 #------------------------------------------------------------------------------
 # Average Request Size Storage Device
