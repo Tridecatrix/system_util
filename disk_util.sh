@@ -68,11 +68,11 @@ do
 
   cat ${IOSTAT} | grep $RM_SF_DEV_NAME > iostat.out.txt
 
-  R_MB_PER_SEC=$(cat iostat.out.txt | awk '{print $6 }' | awk '{ sum += $1; n++ } END { if (n > 0) print (sum / n); }')
-  W_MB_PER_SEC=$(cat iostat.out.txt | awk '{print $7 }' | awk '{ sum += $1; n++ } END { if (n > 0) print (sum / n); }')
-  AVG_RQ_SZ=$(cat iostat.out.txt | awk '{print $8 }' | awk '{ sum += $1; n++ } END { if (n > 0) print (sum / n); }')
-  AVG_QU_SZ=$(cat iostat.out.txt | awk '{print $9 }' | awk '{ sum += $1; n++ } END { if (n > 0) print (sum / n); }')
-  DEV_UTIL=$(cat iostat.out.txt | awk '{print $14 }' | awk '{ sum += $1; n++ } END { if (n > 0) print (sum / n); }')
+  R_MB_PER_SEC=$(cat iostat.out.txt | awk '{print $3 }' | awk '{ sum += $1; n++ } END { if (n > 0) print (sum / n); }')
+  W_MB_PER_SEC=$(cat iostat.out.txt | awk '{print $9 }' | awk '{ sum += $1; n++ } END { if (n > 0) print (sum / n); }')
+  AVG_RQ_SZ=$(cat iostat.out.txt | awk '{print $7 }' | awk '{ sum += $1; n++ } END { if (n > 0) print (sum / n); }')
+  AVG_QU_SZ=$(cat iostat.out.txt | awk '{print $22 }' | awk '{ sum += $1; n++ } END { if (n > 0) print (sum / n); }')
+  DEV_UTIL=$(cat iostat.out.txt | awk '{print $23 }' | awk '{ sum += $1; n++ } END { if (n > 0) print (sum / n); }')
 
   echo "${dev},rMB/s,${R_MB_PER_SEC}" >> ${RESULT_DIR}/diskstat.csv
   echo "${dev},wMB/s,${W_MB_PER_SEC}" >> ${RESULT_DIR}/diskstat.csv

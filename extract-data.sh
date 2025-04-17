@@ -35,6 +35,8 @@ do
     done
 
 
+echo "Extracting data for directory $RESULT_DIR"
+
 # Calculate averages for user, systet, iowait, idle and cpu utilization
 USR_UTIL=$(grep all "${RESULT_DIR}"/mpstat-* | head -n -1 | awk '{ print $4 }' \
 	| grep -v "0,00" | awk -F ',' '{print $1"."$2}' \
