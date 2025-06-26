@@ -37,6 +37,8 @@ do
 
 echo "Extracting data for directory $RESULT_DIR"
 
+grep all "${RESULT_DIR}"/mpstat-*
+
 # Calculate averages for user, systet, iowait, idle and cpu utilization
 USR_UTIL=$(grep all "${RESULT_DIR}"/mpstat-* | head -n -1 | awk '{ print $4 }' \
 	| grep -v "0,00" | awk -F ',' '{print $1"."$2}' \
@@ -63,6 +65,10 @@ CPU_UTIL=$(grep all "${RESULT_DIR}"/mpstat-* | head -n -1 | awk '{ print $13 }' 
   echo "CPU_UTIL(%),${CPU_UTIL}"
 } >> "${RESULT_DIR}"/system.csv
 
+if [ ${#DEVICES[@]} -eq 0 ]; then
+  echo "No devices specified for monitoring, skipping disk utilization extraction."
+  exit 0
+fi
 # Extract the statistics of storage devices utilization
 "$(pwd)"/system_util/disk_util.sh \
 	-b "${RESULT_DIR}"/diskstats-before-* \
